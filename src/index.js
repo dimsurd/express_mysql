@@ -27,3 +27,11 @@ app.post("/upload", upload.single("photo"), (req, res) => {
     message: "Upload berhasil",
   });
 });
+
+// Error handling
+app.use((err, req, res, next) => {
+  res.json({
+    message: err.message,
+  });
+});
+// End Error handling
